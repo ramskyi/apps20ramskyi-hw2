@@ -1,7 +1,5 @@
 package ua.edu.ucu.collections.immutable;
 
-import java.util.Arrays;
-
 public class ImmutableLinkedList implements ImmutableList {
     private static class Node {
         private final Object value;
@@ -20,8 +18,8 @@ public class ImmutableLinkedList implements ImmutableList {
             return this.next;
         }
 
-        public void setNext(Node next) {
-            this.next = next;
+        public void setNext(Node nextNode) {
+            next = nextNode;
         }
     }
 
@@ -62,8 +60,9 @@ public class ImmutableLinkedList implements ImmutableList {
 
     public ImmutableLinkedList addAll(int index, Object[] c) {
         int n = size();
-        if (index < 0 || index > n)
+        if (index < 0 || index > n) {
             throw new IndexOutOfBoundsException();
+        }
 
         Object[] newArr = new Object[size() + c.length];
         Node currNode = first;
@@ -82,7 +81,9 @@ public class ImmutableLinkedList implements ImmutableList {
             throw new IndexOutOfBoundsException();
         }
             Node currNode = first;
-        for (int i = 0; i < index; i++, currNode = currNode.getNext()) ;
+        for (int i = 0; i < index; i++, currNode = currNode.getNext()) {
+            ;
+        }
 
         return currNode.getValue();
     }

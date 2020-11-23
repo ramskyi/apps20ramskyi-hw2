@@ -3,7 +3,7 @@ package ua.edu.ucu.collections;
 import ua.edu.ucu.collections.immutable.ImmutableLinkedList;
 
 public class Stack {
-    ImmutableLinkedList list;
+    private ImmutableLinkedList list;
 
     public Stack() {
         list = new ImmutableLinkedList(new Object[0]);

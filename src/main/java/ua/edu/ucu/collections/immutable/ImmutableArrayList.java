@@ -27,13 +27,15 @@ public class ImmutableArrayList implements ImmutableList {
         Object[] newList = new Object[size() + c.length];
         System.arraycopy(this.list, 0, newList, 0, index);
         System.arraycopy(c, 0, newList, index, c.length);
-        System.arraycopy(this.list, index, newList, index + c.length, size() - index);
+        System.arraycopy(this.list, index, newList, index + c.length,
+                size() - index);
         return new ImmutableArrayList(newList);
     }
 
     public Object get(int index) {
-        if (index < 0 || index >= size())
+        if (index < 0 || index >= size()) {
             throw new IndexOutOfBoundsException();
+        }
         return this.list[index];
     }
 
@@ -43,7 +45,8 @@ public class ImmutableArrayList implements ImmutableList {
         }
         Object[] newList = new Object[size() - 1];
         System.arraycopy(this.list, 0, newList, 0, index);
-        System.arraycopy(this.list, index + 1, newList, index, size() - index - 1);
+        System.arraycopy(this.list, index + 1, newList, index,
+                size() - index - 1);
         return new ImmutableArrayList(newList);
     }
 
