@@ -80,9 +80,9 @@ public class ImmutableLinkedList implements ImmutableList {
         if (index < 0 || index >= size()) {
             throw new IndexOutOfBoundsException();
         }
-            Node currNode = first;
-        for (int i = 0; i < index; i++, currNode = currNode.getNext()) {
-            ;
+        Node currNode = first;
+        for (int i = 0; i < index; i++) {
+            currNode = currNode.getNext();
         }
 
         return currNode.getValue();
